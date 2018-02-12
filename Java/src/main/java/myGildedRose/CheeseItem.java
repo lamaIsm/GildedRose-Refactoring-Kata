@@ -1,25 +1,32 @@
 package myGildedRose;
 
-public class CheeseItem extends IncreasingQuality {
+import com.gildedrose.Item;
+
+public class CheeseItem extends AbstractItem {
+
 
 	
-	
-	
 
-public CheeseItem(int sellIn, int quality) {
-		super("Aged Brie", sellIn, quality);
+//	@Override
+//	public void updateQuality(Item item) {
+//		
+//		if(item.sellIn < 0) {
+//			incrementQuality(item);
+//		}
+//		
+//		incrementQuality(item);
+//		decrementSellIn(item);
+//
+//		
+//	}
+
+	public CheeseItem(String name, int sellIn, int qualtiy) {
+		super(name, sellIn, qualtiy);
 	}
 
-
 	@Override
-	public void updateQuality() {
-		
-		if(sellIn < 0) {
-			incrementQuality();
-		}
-		
-		incrementQuality();
-		decrementSellIn();
+	void updateItem(IUpdateVisitor visitor) {
+		visitor.update(this);
 		
 	}
 	

@@ -1,34 +1,37 @@
 package myGildedRose;
 
-public class TicketItem extends IncreasingQuality {
+import com.gildedrose.Item;
 
-	public TicketItem(int sellIn, int quality) {
-		super("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
+public class TicketItem extends AbstractItem {
+
+	public TicketItem(String name, int sellIn, int quality) {
+		super(name, sellIn, quality);
+
 	}
 
 	@Override
-	public void updateQuality() {
-
-		if (sellIn <= 0) {
-			quality = 0;
+	void updateItem(IUpdateVisitor visitor) {
+		visitor.update(this);
 		
-		} else {
-			incrementQualityOfTicketNearExpiry();
-		}
-
-		decrementSellIn();
 	}
 
 
-	public void incrementQualityOfTicketNearExpiry() {
-		if (sellIn < 11) {
-			incrementQuality();
-		}
-		if (sellIn < 6) {
-			incrementQuality();
-		}
-		incrementQuality();
-	}
+
+//
+//	@Override
+//	public void updateQuality(Item item) {
+//
+//		if (item.sellIn <= 0) {
+//			item.quality = 0;
+//		
+//		} else {
+//			incrementQualityOfTicketNearExpiry(item);
+//		}
+//
+//		decrementSellIn(item);
+//	}
+//
+
 	
 		
 }

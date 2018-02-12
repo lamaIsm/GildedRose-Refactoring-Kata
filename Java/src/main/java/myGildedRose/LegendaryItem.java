@@ -1,15 +1,19 @@
 package myGildedRose;
 
+import com.gildedrose.Item;
 
 public class LegendaryItem extends AbstractItem {
 
-	public LegendaryItem() {
-		super("Sulfuras, Hand of Ragnaros", 0, 80);
+	public LegendaryItem(String name, int sellIn, int quality) {
+		super(name, sellIn, quality);
+	
 	}
 
 	@Override
-	public void updateQuality() {
-		// 
+	void updateItem(IUpdateVisitor visitor) {
+		// TODO Auto-generated method stub
+		
 	}
+
 
 }

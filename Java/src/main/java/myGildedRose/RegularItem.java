@@ -1,15 +1,19 @@
 package myGildedRose;
 
-public class RegularItem extends DecreasingQuality {
+import com.gildedrose.Item;
+
+public class RegularItem extends AbstractItem {
 
 	public RegularItem(String name, int sellIn, int quality) {
 		super(name, sellIn, quality);
 	}
 
-	
 	@Override
-	public void updateQuality() {
-		decrementQuality();
-		decrementSellIn();
+	void updateItem(IUpdateVisitor visitor) {
+		visitor.update(this);
+		
 	}
+
+
+	
 }
